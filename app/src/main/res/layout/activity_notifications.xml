@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA">
+
+    <!-- Шапка -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1A237E"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="Уведомления"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔔"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <!-- Список уведомлений -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Уведомление 1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#FFFFFF" android:padding="16dp" android:layout_marginBottom="8dp" android:elevation="1dp">
+                <TextView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_blue" android:gravity="center" android:text="🚚" android:textSize="20sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Заказ #1001 в пути. Ожидайте доставку завтра." android:textColor="#212121" android:textSize="14sp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="5 минут назад" android:textColor="#9E9E9E" android:textSize="12sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Уведомление 2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#FFFFFF" android:padding="16dp" android:layout_marginBottom="8dp" android:elevation="1dp">
+                <TextView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_green" android:gravity="center" android:text="✅" android:textSize="20sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Заказ #1002 доставлен. Спасибо!" android:textColor="#212121" android:textSize="14sp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2 часа назад" android:textColor="#9E9E9E" android:textSize="12sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Уведомление 3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#FFFFFF" android:padding="16dp" android:layout_marginBottom="8dp" android:elevation="1dp">
+                <TextView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_blue" android:gravity="center" android:text="📦" android:textSize="20sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Заказ #1005 создан и принят в обработку." android:textColor="#212121" android:textSize="14sp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Сегодня" android:textColor="#9E9E9E" android:textSize="12sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Уведомление 4 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#FFFFFF" android:padding="16dp" android:layout_marginBottom="8dp" android:elevation="1dp">
+                <TextView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_orange" android:gravity="center" android:text="⚠️" android:textSize="20sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Заказ #1003 задержан на 1 час." android:textColor="#212121" android:textSize="14sp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Вчера" android:textColor="#9E9E9E" android:textSize="12sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Уведомление 5 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="#FFFFFF" android:padding="16dp" android:elevation="1dp">
+                <TextView android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_circle_grey" android:gravity="center" android:text="📦" android:textSize="20sp"/>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" android:orientation="vertical">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Заказ #1004 отменен." android:textColor="#212121" android:textSize="14sp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2 дня назад" android:textColor="#9E9E9E" android:textSize="12sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8F9FA"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Заголовок (можно сделать как в макете - синяя шапка, но пока оставим простой текст) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Регистрация"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- ЛОГИН -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Логин" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegUsername"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="ivan_petrov"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- EMAIL -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Email" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="ivan@mail.ru"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ТЕЛЕФОН -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Телефон" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegPhone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="+7 999 123-45-67"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ПАРОЛЬ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Пароль" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="********"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ПОВТОР ПАРОЛЯ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Повторите пароль" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegPasswordConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="********"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ФИО -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ФИО" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegFio"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="Иванов Иван Иванович"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ИНДЕКС -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Почтовый индекс" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegIndex"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="101000"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ГОРОД -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Город" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegCity"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="Москва"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- УЛИЦА -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Улица" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegStreet"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="ул. Ленина"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ДОМ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Дом" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRegHouse"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:hint="1"
+            android:inputType="text"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Кнопка -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Зарегистрироваться"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
+            app:backgroundTint="#1A237E"/>
+
+    </LinearLayout>
+</ScrollView>

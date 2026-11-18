@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#F8F9FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Логотип -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚚 ГрузПеревозки"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- ТЕКСТ НАД ПОЛЕМ ЛОГИН -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Логин или email"
+            android:textColor="#6B7280"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- ПОЛЕ ВВОДА ЛОГИН -->
+        <EditText
+            android:id="@+id/etLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:hint="ivan_petrov"
+            android:textColorHint="#B0BEC5"
+            android:textColor="#212121"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ТЕКСТ НАД ПОЛЕМ ПАРОЛЬ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пароль"
+            android:textColor="#6B7280"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- ПОЛЕ ВВОДА ПАРОЛЬ -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:hint="••••••••"
+            android:textColorHint="#B0BEC5"
+            android:textColor="#212121"
+            android:inputType="textPassword"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Кнопка Войти -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Войти"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
+            app:backgroundTint="#1A237E"/>
+
+        <!-- Кнопка Регистрация -->
+        <TextView
+            android:id="@+id/tvGoToRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Нет аккаунта? Зарегистрироваться"
+            android:textColor="#5C6BC0"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+</ScrollView>

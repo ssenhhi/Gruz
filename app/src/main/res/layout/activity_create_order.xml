@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA">
+
+    <!-- Шапка -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1A237E"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Новая заявка"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Индикатор шагов (Кружочки) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="16dp"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView android:id="@+id/step1Circle" android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_step_active" android:gravity="center" android:text="1" android:textColor="#FFFFFF" android:textStyle="bold"/>
+            <View android:layout_width="24dp" android:layout_height="2dp" android:background="#E0E0E0" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/step2Circle" android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_step_inactive" android:gravity="center" android:text="2" android:textColor="#757575"/>
+            <View android:layout_width="24dp" android:layout_height="2dp" android:background="#E0E0E0" android:layout_gravity="center_vertical"/>
+            <TextView android:id="@+id/step3Circle" android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_step_inactive" android:gravity="center" android:text="3" android:textColor="#757575"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="Шаг 1 из 3 — Маршрут"
+            android:textColor="#757575"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- ================= ШАГ 1: МАРШРУТ ================= -->
+            <LinearLayout
+                android:id="@+id/layoutStep1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Откуда (город)" android:textColor="#757575"/>
+                <EditText android:id="@+id/etFromCity" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Москва" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Адрес забора" android:textColor="#757575"/>
+                <EditText android:id="@+id/etFromAddress" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="ул. Ленина, 1" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Куда (город)" android:textColor="#757575"/>
+                <EditText android:id="@+id/etToCity" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Санкт-Петербург" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Адрес доставки" android:textColor="#757575"/>
+                <EditText android:id="@+id/etToAddress" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Невский пр., 10" android:layout_marginBottom="24dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNext1"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Далее →"
+                    app:backgroundTint="#1A237E"
+                    app:cornerRadius="8dp"/>
+            </LinearLayout>
+
+            <!-- ================= ШАГ 2: ГРУЗ ================= -->
+            <LinearLayout
+                android:id="@+id/layoutStep2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"> <!-- Скрыт по умолчанию -->
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Тип груза" android:textColor="#757575"/>
+                <EditText android:id="@+id/etCargoType" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Обычный" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Вес (кг)" android:textColor="#757575"/>
+                <EditText android:id="@+id/etWeight" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="10" android:inputType="numberDecimal" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Объем (м³)" android:textColor="#757575"/>
+                <EditText android:id="@+id/etVolume" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="0.5" android:inputType="numberDecimal" android:layout_marginBottom="16dp"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Габариты (Д × Ш × В, см)" android:textColor="#757575"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
+                    <EditText android:id="@+id/etLength" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Д" android:inputType="number" android:layout_marginEnd="8dp"/>
+                    <EditText android:id="@+id/etWidth" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Ш" android:inputType="number" android:layout_marginEnd="8dp"/>
+                    <EditText android:id="@+id/etHeight" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="В" android:inputType="number"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Комментарий" android:textColor="#757575"/>
+                <EditText android:id="@+id/etComment" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/bg_edittext" android:paddingStart="16dp" android:hint="Не кантовать" android:layout_marginBottom="24dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNext2"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Далее →"
+                    app:backgroundTint="#1A237E"
+                    app:cornerRadius="8dp"/>
+            </LinearLayout>
+
+            <!-- ================= ШАГ 3: ОПЛАТА ================= -->
+            <LinearLayout
+                android:id="@+id/layoutStep3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"> <!-- Скрыт по умолчанию -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#1A237E"
+                    android:padding="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Предварительная стоимость" android:textColor="#B3C0FF" android:textSize="14sp"/>
+                    <TextView android:id="@+id/tvCalculatedPrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 ₽" android:textColor="#FFFFFF" android:textSize="32sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Способ оплаты" android:textColor="#212121" android:textStyle="bold" android:layout_marginBottom="16dp"/>
+
+                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp">
+                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Банковская карта" android:padding="12dp" android:background="@drawable/bg_radio_button" android:layout_marginBottom="8dp"/>
+                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Наличные" android:padding="12dp" android:background="@drawable/bg_radio_button" android:layout_marginBottom="8dp"/>
+                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Безналичный расчет" android:padding="12dp" android:background="@drawable/bg_radio_button"/>
+                </RadioGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Подтвердить заказ"
+                    app:backgroundTint="#1A237E"
+                    app:cornerRadius="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

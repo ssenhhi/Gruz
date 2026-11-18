@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F8F9FA">
+
+    <!-- Синий кружок с галочкой -->
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_circle_blue"
+        android:gravity="center"
+        android:text="✓"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Заголовок -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Заказ создан!"
+        android:textColor="#212121"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Номер заказа (мы передадим его из предыдущего экрана) -->
+    <TextView
+        android:id="@+id/tvOrderNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Номер заказа: #1005"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Текст уведомления -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Мы отправили уведомление на ваш email. Отслеживайте статус в разделе «Заказы»."
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Кнопка Перейти к заказу -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoToOrder"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Перейти к заказу"
+        app:backgroundTint="#1A237E"
+        app:cornerRadius="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Кнопка На главную -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGoHome"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="На главную"
+        android:textColor="#757575"
+        app:strokeColor="#D0D0D0"
+        app:cornerRadius="8dp"/>
+
+</LinearLayout>
