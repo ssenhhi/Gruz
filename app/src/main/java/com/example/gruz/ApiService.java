@@ -27,4 +27,12 @@ public interface ApiService {
     Call<UsersListResponse> getAllUsers();
     @GET("api/collections/orders/records")
     Call<OrdersListResponse> getAllOrders();
+    @POST("api/collections/cargos/records")
+    Call<CargoCreateRequest> createCargo(@Body CargoCreateRequest request);
+    @GET("api/collections/cargo_types/records")
+    Call<CargoTypesListResponse> getCargoTypes();
+    @POST("api/collections/orders/records")
+    Call<OrderResponse> createOrder(@Body OrderCreateRequest request);
+    @POST("api/collections/payments/records")
+    Call<PaymentCreateRequest> createPayment(@Body PaymentCreateRequest request);
 }

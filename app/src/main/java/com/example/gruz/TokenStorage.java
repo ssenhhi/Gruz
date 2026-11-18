@@ -27,4 +27,12 @@ public class TokenStorage {
     public String getUserEmail() {
         return prefs.getString("user_email", null);
     }
+    public void saveUserId(String id) {
+        prefs.edit().putString("user_id", id).apply();
+    }
+
+    // Получить ID пользователя
+    public String getUserId() {
+        return prefs.getString("user_id", null);
+    }
 }

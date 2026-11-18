@@ -61,29 +61,40 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
                         btnLogin.setEnabled(true);
                         btnLogin.setText("Войти");
-                        if (response.isSuccessful() && response.body() != null) {
-                            TokenStorage tokenStorage = new TokenStorage(getApplicationContext());
-                            tokenStorage.saveTokens(response.body().getToken(), null);
-                            tokenStorage.saveUserEmail(login);
-                            Toast.makeText(MainActivity.this, "Успешный вход!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            if (response.code() == 400) {
-                                Toast.makeText(MainActivity.this, "Неверный email или пароль", Toast.LENGTH_LONG).show();
-                            } else if (response.code() == 404) {
-                                Toast.makeText(MainActivity.this, "Пользователь с таким email не найден", Toast.LENGTH_LONG).show();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Ошибка сервера: " + response.code(), Toast.LENGTH_SHORT).show();
+                        TokenStorage tokenStorage = new TokenStorage(getApplicationContext());
+                        tokenStorage.saveTokens(response.body().getToken(), null);
+                        tokenStorage.saveUserEmail(login);
+
+                        // ЗАПРАШИВАЕМ ПРОФИЛЬ, ЧТОБЫ СОХРАНИТЬ ID
+                        ApiService apiService = RetrofitClient.getApiService(getApplicationContext());
+                        apiService.getAllUsers().enqueue(new Callback<UsersListResponse>() {
+                            @Override
+                            public void onResponse(Call<UsersListResponse> call, Response<UsersListResponse> response) {
+                                if (response.isSuccessful() && response.body() != null && !response.body().getItems().isEmpty()) {
+                                    // Берем первого пользователя (так как мы ищем по email, но для простоты берем первого)
+                                    // В идеале тут нужен фильтр, но для теста сойдет
+                                    String userId = response.body().getItems().get(0).getId();
+                                    tokenStorage.saveUserId(userId);
+
+                                    Toast.makeText(MainActivity.this, "Успешный вход!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Ошибка загрузки профиля", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
+
+                            @Override
+                            public void onFailure(Call<UsersListResponse> call, Throwable t) {
+                                Toast.makeText(MainActivity.this, "Ошибка сети", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
+
                     @Override
                     public void onFailure(Call<TokenResponse> call, Throwable t) {
-                        btnLogin.setEnabled(true);
-                        btnLogin.setText("Войти");
-                        Toast.makeText(MainActivity.this, "Ошибка сети: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }

@@ -159,10 +159,10 @@
 
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Способ оплаты" android:textColor="#212121" android:textStyle="bold" android:layout_marginBottom="16dp"/>
 
-                <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp">
-                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Банковская карта" android:padding="12dp" android:background="@drawable/bg_radio_button" android:layout_marginBottom="8dp"/>
+                <RadioGroup android:id="@+id/radioGroupPayment" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp">
+                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Карта" android:padding="12dp" android:background="@drawable/bg_radio_button" android:layout_marginBottom="8dp"/>
                     <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Наличные" android:padding="12dp" android:background="@drawable/bg_radio_button" android:layout_marginBottom="8dp"/>
-                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Безналичный расчет" android:padding="12dp" android:background="@drawable/bg_radio_button"/>
+                    <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="СБП" android:padding="12dp" android:background="@drawable/bg_radio_button"/>
                 </RadioGroup>
 
                 <com.google.android.material.button.MaterialButton
