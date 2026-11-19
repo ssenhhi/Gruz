@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Gruz"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -23,16 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".NotificationsActivity" />
-        <activity android:name=".OrderDetailsActivity" />
-        <activity android:name=".TemplatesActivity" />
-        <activity android:name=".OrderSuccessActivity" />
-        <activity android:name=".CreateOrderActivity" />
-        <activity android:name=".OrdersActivity" />
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.NotificationsActivity" />
+        <activity android:name=".activity.OrderDetailsActivity" />
+        <activity android:name=".activity.TemplatesActivity" />
+        <activity android:name=".activity.OrderSuccessActivity" />
+        <activity android:name=".activity.CreateOrderActivity" />
+        <activity android:name=".activity.OrdersActivity" />
+        <activity android:name=".activity.EditProfileActivity" />
+        <activity android:name=".activity.ProfileActivity" />
     </application>
 
 </manifest>

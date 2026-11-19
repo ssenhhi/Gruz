@@ -5,22 +5,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F8F9FA">
-
-    <!-- Шапка -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#1A237E"
         android:gravity="center_vertical"
         android:paddingHorizontal="16dp">
-
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_revert"
             app:tint="#FFFFFF" />
-
         <TextView
             android:id="@+id/tvOrderTitle"
             android:layout_width="0dp"
@@ -31,22 +27,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"/>
-
-        <!-- Плашка статуса -->
-        <TextView
-            android:id="@+id/tvStatusBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_status"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp"
-            android:text="В ПУТИ"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"/>
     </LinearLayout>
-
-    <!-- Вкладки -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
@@ -55,7 +36,6 @@
         app:tabIndicatorColor="#1A237E"
         app:tabSelectedTextColor="#1A237E"
         app:tabTextColor="#757575">
-
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,39 +46,25 @@
             android:layout_height="wrap_content"
             android:text="История" />
     </com.google.android.material.tabs.TabLayout>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <!-- БЛОК 1: ДЕТАЛИ -->
         <ScrollView
             android:id="@+id/layoutDetails"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="24dp">
-
-                <!-- Маршрут -->
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Маршрут" android:textColor="#9E9E9E" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Москва → Санкт-Петербург" android:textColor="#212121" android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Забор: ул. Ленина, 1\nДоставка: Невский пр., 10" android:textColor="#757575" android:textSize="14sp" android:layout_marginBottom="24dp"/>
-
-                <!-- Груз -->
+                <TextView android:id="@+id/tvDetailRoute" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Москва → Санкт-Петербург" android:textColor="#212121" android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="16dp"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Груз" android:textColor="#9E9E9E" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10 кг • 0.5 м³ • 40×30×20 см" android:textColor="#212121" android:textSize="16sp" android:layout_marginBottom="4dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Тип: обычный" android:textColor="#757575" android:textSize="14sp" android:layout_marginBottom="24dp"/>
-
-                <!-- Оплата -->
+                <TextView android:id="@+id/tvDetailCargo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10 кг • 0.5 м³ • 40×30×20 см" android:textColor="#212121" android:textSize="16sp" android:layout_marginBottom="16dp"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Оплата" android:textColor="#9E9E9E" android:textSize="12sp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3 500 ₽ • Карта" android:textColor="#212121" android:textSize="16sp" android:layout_marginBottom="4dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Оплачено" android:textColor="#4CAF50" android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="32dp"/>
-
+                <TextView android:id="@+id/tvDetailPayment" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3 500 ₽ • Карта" android:textColor="#212121" android:textSize="16sp" android:layout_marginBottom="32dp"/>
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRepeat"
                     android:layout_width="match_parent"
@@ -108,42 +74,17 @@
                     app:cornerRadius="8dp"/>
             </LinearLayout>
         </ScrollView>
-
-        <!-- БЛОК 2: ИСТОРИЯ -->
         <ScrollView
             android:id="@+id/layoutHistory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone">
-
             <LinearLayout
+                android:id="@+id/historyContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Создан" android:textSize="16sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10.11.2026 09:00" android:textColor="#757575"/>
-                </LinearLayout>
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Принят в обработку" android:textSize="16sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10.11.2026 10:15" android:textColor="#757575"/>
-                </LinearLayout>
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Отправлен" android:textSize="16sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10.11.2026 14:30" android:textColor="#757575"/>
-                </LinearLayout>
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="В пути" android:textSize="16sp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="11.11.2026 08:00" android:textColor="#757575"/>
-                </LinearLayout>
-
-            </LinearLayout>
+                android:padding="24dp"/>
         </ScrollView>
-
     </FrameLayout>
 </LinearLayout>

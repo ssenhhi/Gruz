@@ -10,8 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
-
-        <!-- Заголовок (можно сделать как в макете - синяя шапка, но пока оставим простой текст) -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,8 +20,6 @@
             android:gravity="center"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"/>
-
-        <!-- ЛОГИН -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Логин" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegUsername"
@@ -34,8 +30,6 @@
             android:hint="ivan_petrov"
             android:inputType="text"
             android:layout_marginBottom="16dp"/>
-
-        <!-- EMAIL -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Email" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegEmail"
@@ -46,8 +40,6 @@
             android:hint="ivan@mail.ru"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ТЕЛЕФОН -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Телефон" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegPhone"
@@ -58,8 +50,6 @@
             android:hint="+7 999 123-45-67"
             android:inputType="phone"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ПАРОЛЬ -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Пароль" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegPassword"
@@ -70,8 +60,6 @@
             android:hint="********"
             android:inputType="textPassword"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ПОВТОР ПАРОЛЯ -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Повторите пароль" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegPasswordConfirm"
@@ -82,8 +70,6 @@
             android:hint="********"
             android:inputType="textPassword"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ФИО -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ФИО" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegFio"
@@ -94,8 +80,6 @@
             android:hint="Иванов Иван Иванович"
             android:inputType="textPersonName"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ИНДЕКС -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Почтовый индекс" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegIndex"
@@ -106,8 +90,6 @@
             android:hint="101000"
             android:inputType="number"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ГОРОД -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Город" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegCity"
@@ -118,8 +100,6 @@
             android:hint="Москва"
             android:inputType="text"
             android:layout_marginBottom="16dp"/>
-
-        <!-- УЛИЦА -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Улица" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegStreet"
@@ -130,8 +110,6 @@
             android:hint="ул. Ленина"
             android:inputType="text"
             android:layout_marginBottom="16dp"/>
-
-        <!-- ДОМ -->
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Дом" android:textColor="#6B7280" android:layout_marginBottom="8dp"/>
         <EditText
             android:id="@+id/etRegHouse"
@@ -142,8 +120,6 @@
             android:hint="1"
             android:inputType="text"
             android:layout_marginBottom="32dp"/>
-
-        <!-- Кнопка -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
@@ -153,6 +129,5 @@
             android:textSize="16sp"
             app:cornerRadius="8dp"
             app:backgroundTint="#1A237E"/>
-
     </LinearLayout>
 </ScrollView>

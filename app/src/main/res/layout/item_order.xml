@@ -7,21 +7,17 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="1dp"
     app:cardBackgroundColor="#F8F9FA">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-
-        <!-- Верхняя строка: Номер и Статус -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:layout_marginBottom="8dp">
-
             <TextView
                 android:id="@+id/tvOrderId"
                 android:layout_width="0dp"
@@ -30,7 +26,6 @@
                 android:text="#1001"
                 android:textSize="16sp"
                 android:textColor="#212121"/>
-
             <TextView
                 android:id="@+id/tvOrderStatus"
                 android:layout_width="wrap_content"
@@ -43,8 +38,6 @@
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="4dp"/>
         </LinearLayout>
-
-        <!-- Комментарий (вместо маршрута) -->
         <TextView
             android:id="@+id/tvOrderComment"
             android:layout_width="match_parent"
@@ -52,6 +45,5 @@
             android:text="Комментарий к заказу"
             android:textColor="#757575"
             android:textSize="14sp"/>
-
     </LinearLayout>
 </androidx.cardview.widget.CardView>
