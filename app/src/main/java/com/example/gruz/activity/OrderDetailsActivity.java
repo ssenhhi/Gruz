@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gruz.models.CargoListResponse;
 import com.example.gruz.models.CargoResponse;
+import com.example.gruz.models.OrderResponse;
 import com.example.gruz.R;
 import com.example.gruz.models.PaymentListResponse;
 import com.example.gruz.models.PaymentResponse;
@@ -73,6 +74,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         });
         loadCargoDetails();
         loadStatusHistory();
+        loadOrderDetails();
     }
     private void loadPaymentDetails() {
         ApiService api = RetrofitClient.getApiService(this);
@@ -130,6 +132,23 @@ public class OrderDetailsActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<StatusHistoryListResponse> call, Throwable t) {}
+        });
+    }
+    private void loadOrderDetails() {
+        ApiService api = RetrofitClient.getApiService(this);
+        api.getOrderById(orderId).enqueue(new Callback<OrderResponse>() {
+            @Override
+            public void onResponse(Call<OrderResponse> call, Response<OrderResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    OrderResponse order = response.body();
+                    TextView tvRoute = findViewById(R.id.tvDetailRoute);
+                    if (tvRoute != null && order.getCityFrom() != null && order.getCityTo() != null) {
+                        tvRoute.setText(order.getCityFrom() + " → " + order.getCityTo());
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<OrderResponse> call, Throwable t) {}
         });
     }
 }

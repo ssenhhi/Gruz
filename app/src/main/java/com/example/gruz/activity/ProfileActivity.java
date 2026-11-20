@@ -2,6 +2,8 @@ package com.example.gruz.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +23,7 @@ import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private TextView tvFio, tvLogin, tvEmail, tvPhone;
+    private TextView tvFio, tvLogin, tvEmail, tvPhone, tvAddress;
     private String currentUserId;
 
     @Override
@@ -30,10 +32,12 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         ImageView btnBack = findViewById(R.id.btnBack);
+        Button btnLogout = findViewById(R.id.btnLogout);
         tvFio = findViewById(R.id.tvProfileFio);
         tvLogin = findViewById(R.id.tvProfileLogin);
         tvEmail = findViewById(R.id.tvProfileEmail);
         tvPhone = findViewById(R.id.tvProfilePhone);
+        tvAddress = findViewById(R.id.tvProfileAddress);
         btnBack.setOnClickListener(v -> finish());
         loadProfileData();
         findViewById(R.id.btnEditProfile).setOnClickListener(v -> {
@@ -44,6 +48,14 @@ public class ProfileActivity extends AppCompatActivity {
             intent.putExtra("phone", tvPhone.getText().toString());
             intent.putExtra("user_id", currentUserId);
             startActivity(intent);
+        });
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 
@@ -67,6 +79,14 @@ public class ProfileActivity extends AppCompatActivity {
                     UserResponse user = response.body();
                     currentUserId = user.getId();
                     tvFio.setText(user.getFullName());
+                    String fullAddress = "";
+                    if (user.getIndex() != null) fullAddress += user.getIndex() + ", ";
+                    if (user.getCity() != null) fullAddress += user.getCity() + ", ";
+                    if (user.getStreet() != null) fullAddress += user.getStreet() + ", ";
+                    if (user.getHomeNumber() != null) fullAddress += user.getHomeNumber();
+                    if (tvAddress != null) {
+                        tvAddress.setText(fullAddress);
+                    }
                     tvLogin.setText(user.getLogin());
                     tvEmail.setText(user.getEmail());
                     tvPhone.setText(user.getPhone());

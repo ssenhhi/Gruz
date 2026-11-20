@@ -20,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText etEmail, etUsername, etPassword, etPasswordConfirm, etFio, etPhone;
+    private EditText etEmail, etUsername, etPassword, etPasswordConfirm, etFio, etPhone, etHouse, etIndex, etCity, etStreet;
     private Button btnRegister;
 
     @Override
@@ -34,6 +34,10 @@ public class RegisterActivity extends AppCompatActivity {
         etPasswordConfirm = findViewById(R.id.etRegPasswordConfirm);
         etFio = findViewById(R.id.etRegFio);
         etPhone = findViewById(R.id.etRegPhone);
+        etIndex = findViewById(R.id.etRegIndex);
+        etCity = findViewById(R.id.etRegCity);
+        etStreet = findViewById(R.id.etRegStreet);
+        etHouse = findViewById(R.id.etRegHouse);
         btnRegister = findViewById(R.id.btnRegister);
         if (etEmail == null || etUsername == null || etPassword == null || etPasswordConfirm == null || etFio == null || etPhone == null || btnRegister == null) {
             Toast.makeText(this, "Ошибка: не найдены поля в XML!", Toast.LENGTH_LONG).show();
@@ -52,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
             String index = etIndex.getText().toString().trim();
             String city = etCity.getText().toString().trim();
             String street = etStreet.getText().toString().trim();
+            String house = etHouse.getText().toString().trim();
             if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(this, "Введите корректный Email (example@mail.ru)", Toast.LENGTH_SHORT).show();
                 return;
@@ -88,8 +93,12 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(this, "Проверьте написание улицы", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (!house.matches("^[0-9][0-9a-zA-Zа-яА-Я\\s\\/\\-]*$")) {
+                Toast.makeText(this, "Некорректный номер дома (например: 145А)", Toast.LENGTH_SHORT).show();
+                return;
+            }
             ApiService api = RetrofitClient.getApiService(getApplicationContext());
-            RegisterRequest request = new RegisterRequest(username, fio, phone, email, password);
+            RegisterRequest request = new RegisterRequest(username, fio, phone, email, password, index, city, street, house);
 
             btnRegister.setEnabled(false);
             btnRegister.setText("Загрузка...");

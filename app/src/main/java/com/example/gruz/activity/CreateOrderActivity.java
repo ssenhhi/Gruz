@@ -38,7 +38,7 @@ public class CreateOrderActivity extends AppCompatActivity {
 
     private LinearLayout layoutStep1, layoutStep2, layoutStep3;
     private TextView step1Circle, step2Circle, step3Circle, tvStepTitle, tvCalculatedPrice;
-    private EditText etWeight, etVolume;
+    private EditText etWeight, etVolume, etFromCity, etFromAddress, etToCity, etToAddress, etComment;
     private String currentOrderId = null;
     private int currentPrice = 0;
     private String currentPaymentMethod = "Карта";
@@ -55,6 +55,11 @@ public class CreateOrderActivity extends AppCompatActivity {
         loadCargoTypes();
         ImageView btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
+        etFromCity = findViewById(R.id.etFromCity);
+         etToCity = findViewById(R.id.etToCity);
+         etFromAddress = findViewById(R.id.etFromAddress);
+         etToAddress = findViewById(R.id.etToAddress);
+        etComment = findViewById(R.id.etComment);
         layoutStep1 = findViewById(R.id.layoutStep1);
         layoutStep2 = findViewById(R.id.layoutStep2);
         layoutStep3 = findViewById(R.id.layoutStep3);
@@ -69,8 +74,11 @@ public class CreateOrderActivity extends AppCompatActivity {
         MaterialButton btnNext2 = findViewById(R.id.btnNext2);
         MaterialButton btnSubmit = findViewById(R.id.btnSubmit);
         btnNext1.setOnClickListener(v -> {
-            String fromCity = ((EditText) findViewById(R.id.etFromCity)).getText().toString();
-            String toCity = ((EditText) findViewById(R.id.etToCity)).getText().toString();
+            String fromCity = etFromCity.getText().toString().trim();
+            String toCity = etToCity.getText().toString().trim();
+            String fromStreet = etFromAddress.getText().toString().trim();
+            String toStreet = etToAddress.getText().toString().trim();
+            String comment = etComment.getText().toString().trim();
             if (fromCity.isEmpty() || toCity.isEmpty()) {
                 Toast.makeText(this, "Заполните города!", Toast.LENGTH_SHORT).show();
                 return;
@@ -82,9 +90,18 @@ public class CreateOrderActivity extends AppCompatActivity {
                 return;
             }
             orderNumber = "#" + (int)(Math.random() * 9000 + 1000);
-            String comment = ((EditText) findViewById(R.id.etComment)).getText().toString();
             ApiService api = RetrofitClient.getApiService(this);
-            OrderCreateRequest orderRequest = new OrderCreateRequest(orderNumber, "Создан", comment, userId);
+            OrderCreateRequest orderRequest = new OrderCreateRequest(
+                    orderNumber,
+                    "Создан",
+                    comment,
+                    userId,
+                    fromCity,
+                    toCity,
+                    fromStreet,
+                    toStreet
+            );
+
             btnNext1.setEnabled(false);
             btnNext1.setText("Создание...");
             api.createOrder(orderRequest).enqueue(new Callback<OrderResponse>() {

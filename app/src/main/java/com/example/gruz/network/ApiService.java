@@ -59,4 +59,6 @@ public interface ApiService {
     Call<CitiesListResponse> getCities();
     @GET("api/collections/status_history/records")
     Call<StatusHistoryListResponse> getHistoryByOrder(@Query("filter") String filter);
+    @GET("api/collections/orders/records/{id}")
+    Call<OrderResponse> getOrderById(@Path("id") String orderId);
 }
